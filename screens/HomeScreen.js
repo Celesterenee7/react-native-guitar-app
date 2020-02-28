@@ -13,8 +13,8 @@ export default function HomeScreen() {
           <Image
             source={
               __DEV__
-                ? require('../assets/images/robot-dev.png')
-                : require('../assets/images/robot-prod.png')
+                ? require('../assets/images/guitar.png')
+                : require('../assets/images/guitar.png')
             }
             style={styles.welcomeImage}
           />
@@ -23,14 +23,16 @@ export default function HomeScreen() {
         <View style={styles.getStartedContainer}>
           <DevelopmentModeNotice />
 
-          <Text style={styles.getStartedText}>Open up the code for this screen:</Text>
-
-          <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-            <MonoText>screens/HomeScreen.js</MonoText>
-          </View>
+          <Text style={styles.getStartedText}>Passionate from miles away.</Text>
 
           <Text style={styles.getStartedText}>
-            Change any of the text, save the file, and your app will automatically reload.
+            Passive with the things you say...
+          </Text>
+          <Text style={styles.getStartedText}>
+            Passing up on my old ways...
+          </Text>
+          <Text style={styles.getStartedText}>
+            Passing up on my old ways...
           </Text>
         </View>
 
