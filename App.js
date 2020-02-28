@@ -4,11 +4,13 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons } from 'react-native-vector-icons';
 import { Feather } from 'react-native-vector-icons';
+import SearchBarNavigator from './navigation/SearchBarNavigator';
 
 function HomeFeed() {
   return (
+    
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', activeBackgroundColor: 'blue' }}>
-      <Text>Home</Text>
+      
     </View>
   );
 }
@@ -95,8 +97,10 @@ function MyTabs() {
 
 
 export default function App() {
+  
   return (
     <NavigationContainer>
+      <SearchBarNavigator/>
       <MyTabs />
     </NavigationContainer>
   );

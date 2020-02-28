@@ -9,13 +9,6 @@ export default function HomeScreen() {
   return (
     <View style={styles.container}>
 
-    <View style={styles.topTabBarInfoContainer}>
-      <Text style={styles.tabBarInfoText}>Navbar maybe?</Text>
-      <View style={[styles.codeHighlightContainer, styles.navigationFilename]}>
-        <MonoText style={styles.codeHighlightText}>navigation/TopTabNavigator.js</MonoText>
-      </View>
-    </View>
-
       <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
         <View style={styles.welcomeContainer}>
           <Image
@@ -166,30 +159,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#048B78',
     paddingVertical: 20,
   },
-
-  topTabBarInfoContainer: {
-    top: 0,
-    left: 0,
-    right: 0,
-    ...Platform.select({
-      ios: {
-        shadowColor: 'black',
-        shadowOffset: { width: 0, height: -3 },
-        shadowOpacity: 0.1,
-        shadowRadius: 3,
-      },
-      android: {
-        elevation: 20,
-      },
-    }),
-    alignItems: 'center',
-    backgroundColor: '#048B78',
-    color: 'white',
-    paddingVertical: 20,
-  },
-
-
-
 
 
   tabBarInfoText: {
