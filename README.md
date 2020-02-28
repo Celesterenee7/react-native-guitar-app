@@ -22,6 +22,10 @@
 ## What additional tools, frameworks, libraries, APIs, or other resources will these additional features require?
 * Interactive CSS for responsive scrolling and tricks.
 
+## Schedule for 2/28
+
+* 8:00am to 11:00am : Build out the componenet structure for the project
+
 ## Specifications:
 
 |Spec|Input|Output|
