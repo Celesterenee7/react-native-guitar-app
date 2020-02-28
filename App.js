@@ -4,26 +4,26 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons } from 'react-native-vector-icons';
 
-function Feed() {
+function HomeFeed() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Feed!</Text>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', activeBackgroundColor: 'blue' }}>
+      <Text>Home</Text>
     </View>
   );
 }
 
-function Profile() {
+function FavTabs() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Profile!</Text>
+      <Text>Favorite Tabs</Text>
     </View>
   );
 }
 
-function Notifications() {
+function Songs() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Notifications!</Text>
+      <Text>Songs</Text>
     </View>
   );
 }
@@ -33,14 +33,15 @@ const Tab = createBottomTabNavigator();
 function MyTabs() {
   return (
     <Tab.Navigator
-      initialRouteName="Feed"
+      initialRouteName="HomeFeed"
       tabBarOptions={{
         activeTintColor: '#048B78',
+        activeBackgroundColor: 'blue',
       }}
     >
       <Tab.Screen
-        name="Feed"
-        component={Feed}
+        name="HomeFeed"
+        component={HomeFeed}
         options={{
           tabBarLabel: 'Home',
           tabBarIcon: ({ color, size }) => (
@@ -49,8 +50,8 @@ function MyTabs() {
         }}
       />
       <Tab.Screen
-        name="Notifications"
-        component={Notifications}
+        name="FavTabs"
+        component={FavTabs}
         options={{
           tabBarLabel: 'My Tabs',
           tabBarIcon: ({ color, size }) => (
@@ -59,8 +60,8 @@ function MyTabs() {
         }}
       />
       <Tab.Screen
-        name="Profile"
-        component={Profile}
+        name="Songs"
+        component={Songs}
         options={{
           tabBarLabel: 'Songs',
           tabBarIcon: ({ color, size }) => (
@@ -72,6 +73,8 @@ function MyTabs() {
   );
 }
 
+
+
 export default function App() {
   return (
     <NavigationContainer>
@@ -79,4 +82,5 @@ export default function App() {
     </NavigationContainer>
   );
 }
+
 
