@@ -1,16 +1,20 @@
 import * as React from 'react';
 import { Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import SearchBarNavigator from './navigation/SearchBarNavigator';
 import { MaterialCommunityIcons } from 'react-native-vector-icons';
 import { Feather } from 'react-native-vector-icons';
-import SearchBarNavigator from './navigation/SearchBarNavigator';
+
+
+
 
 function HomeFeed() {
   return (
     
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', activeBackgroundColor: 'blue' }}>
-      
+      <Text>Welcome!</Text>
     </View>
   );
 }
@@ -31,10 +35,11 @@ function Songs() {
   );
 }
 
+
 function Search() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Search</Text>
+      <SearchBarNavigator />
     </View>
   );
 }
@@ -100,7 +105,7 @@ export default function App() {
   
   return (
     <NavigationContainer>
-      <SearchBarNavigator/>
+     
       <MyTabs />
     </NavigationContainer>
   );

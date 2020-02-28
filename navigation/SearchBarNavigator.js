@@ -48,19 +48,19 @@ export default class App extends React.Component {
   };
   render() {
     return (
-      <View style={{ flex: 1, paddingTop: 20 }}>
+      <View style={{ flex: 1 }}>
         <View
           style={{
-            height: 80,
-            backgroundColor: '#74C7ED',
+            height: 70,
+            backgroundColor: '#83FAE7',
             justifyContent: 'center',
-            paddingHorizontal: 5,
+            paddingHorizontal: 35,
           }}>
           <Animate.View
             animation="slideInRight"
             duration={1000}
             style={{
-              height: 50,
+              height: 40,
               backgroundColor: 'white',
               flexDirection: 'row',
               padding: 5,
@@ -70,11 +70,11 @@ export default class App extends React.Component {
               name={
                 this.state.searchBarFocused ? 'md-arrow-back' : 'ios-search'
               }
-              style={{ fontSize: 25 }}
+              style={{ fontSize: 20 }}
             />
             <TextInput
               placeholder="Search"
-              style={{ fontSize: 25, paddingLeft: 15 }}
+              style={{ fontSize: 20, paddingLeft: 15 }}
             />
           </Animate.View>
         </View>
