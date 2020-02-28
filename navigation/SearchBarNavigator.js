@@ -50,19 +50,19 @@ export default class App extends React.Component {
       <View style={{ flex: 1 }}>
         <View
           style={{
-            height: 70,
+            height: 80,
             backgroundColor: '#83FAE7',
             justifyContent: 'center',
-            paddingHorizontal: 295,
+            paddingHorizontal: 35,
           }}>
           <Animate.View
             animation="slideInRight"
-            duration={1000}
+            duration={2000}
             style={{
               height: 50,
               backgroundColor: 'white',
               flexDirection: 'row',
-              padding: 5,
+              padding: 15,
               alignItems: 'center',
             }}>
             <Icon
@@ -85,7 +85,7 @@ export default class App extends React.Component {
           }}
           data={listItems}
           renderItem={({ item }) => (
-            <Text style={{ padding: 20, fontSize: 20 }}>{item}</Text>
+            <Text style={{ padding: 20, paddingLeft: 30, fontSize: 20 }}>{item}</Text>
           )}
           keyExtractor={(item, index) => index.toString()}
         />
