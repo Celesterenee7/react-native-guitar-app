@@ -3,6 +3,7 @@ import { Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons } from 'react-native-vector-icons';
+import { Feather } from 'react-native-vector-icons';
 
 function HomeFeed() {
   return (
@@ -28,6 +29,14 @@ function Songs() {
   );
 }
 
+function Search() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Search</Text>
+    </View>
+  );
+}
+
 const Tab = createBottomTabNavigator();
 
 function MyTabs() {
@@ -36,7 +45,7 @@ function MyTabs() {
       initialRouteName="HomeFeed"
       tabBarOptions={{
         activeTintColor: '#048B78',
-        activeBackgroundColor: 'blue',
+        activeBackgroundColor: '#83FAE7',
       }}
     >
       <Tab.Screen
@@ -66,6 +75,16 @@ function MyTabs() {
           tabBarLabel: 'Songs',
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="music" color={color} size={size} />
+          ),
+        }}
+      />
+         <Tab.Screen
+        name="Search"
+        component={Search}
+        options={{
+          tabBarLabel: 'Search',
+          tabBarIcon: ({ color, size }) => (
+            <Feather name="search" color={color} size={size} />
           ),
         }}
       />
