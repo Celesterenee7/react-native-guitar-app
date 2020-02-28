@@ -13,7 +13,7 @@ import { Feather } from 'react-native-vector-icons';
 function HomeFeed() {
   return (
     
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', activeBackgroundColor: 'blue' }}>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'white' }}>
       <Text>Welcome!</Text>
     </View>
   );
@@ -21,7 +21,7 @@ function HomeFeed() {
 
 function FavTabs() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'white' }}>
       <Text>Favorite Tabs</Text>
     </View>
   );
@@ -29,7 +29,7 @@ function FavTabs() {
 
 function Songs() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'white' }}>
       <Text>Songs</Text>
     </View>
   );
@@ -38,7 +38,7 @@ function Songs() {
 
 function Search() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <View>
       <SearchBarNavigator />
     </View>
   );

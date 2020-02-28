@@ -11,7 +11,6 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import * as Animate from 'react-native-animatable';
 const listItems = [
   'My Tabs',
-  'Songs',
   'Luke Combs',
   'Taylor Swift'
 ];
@@ -54,13 +53,13 @@ export default class App extends React.Component {
             height: 70,
             backgroundColor: '#83FAE7',
             justifyContent: 'center',
-            paddingHorizontal: 35,
+            paddingHorizontal: 295,
           }}>
           <Animate.View
             animation="slideInRight"
             duration={1000}
             style={{
-              height: 40,
+              height: 50,
               backgroundColor: 'white',
               flexDirection: 'row',
               padding: 5,
