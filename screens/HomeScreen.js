@@ -3,19 +3,26 @@ import { Image, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react
 import { ScrollView } from 'react-native-gesture-handler';
 import * as WebBrowser from 'expo-web-browser';
 
-
 import { MonoText } from '../components/StyledText';
 
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
+
+    <View style={styles.topTabBarInfoContainer}>
+      <Text style={styles.tabBarInfoText}>Navbar maybe?</Text>
+      <View style={[styles.codeHighlightContainer, styles.navigationFilename]}>
+        <MonoText style={styles.codeHighlightText}>navigation/TopTabNavigator.js</MonoText>
+      </View>
+    </View>
+
       <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
         <View style={styles.welcomeContainer}>
           <Image
             source={
               __DEV__
-                ? require('../assets/images/guitar.png')
-                : require('../assets/images/guitar.png')
+                ? require('../src/assets/images/guitar.png')
+                : require('../src/assets/images/robot-prod.png')
             }
             style={styles.welcomeImage}
           />
@@ -39,14 +46,13 @@ export default function HomeScreen() {
 
         <View style={styles.helpContainer}>
           <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
-            <Text style={styles.helpLinkText}>Help, it didn’t automatically reload!</Text>
+            <Text style={styles.helpLinkText}>Hyperlink example</Text>
           </TouchableOpacity>
         </View>
       </ScrollView>
 
       <View style={styles.tabBarInfoContainer}>
         <Text style={styles.tabBarInfoText}>This is a tab bar. You can edit it in:</Text>
-
         <View style={[styles.codeHighlightContainer, styles.navigationFilename]}>
           <MonoText style={styles.codeHighlightText}>navigation/BottomTabNavigator.js</MonoText>
         </View>
@@ -157,12 +163,38 @@ const styles = StyleSheet.create({
       },
     }),
     alignItems: 'center',
-    backgroundColor: '#fbfbfb',
+    backgroundColor: '#048B78',
     paddingVertical: 20,
   },
+
+  topTabBarInfoContainer: {
+    top: 0,
+    left: 0,
+    right: 0,
+    ...Platform.select({
+      ios: {
+        shadowColor: 'black',
+        shadowOffset: { width: 0, height: -3 },
+        shadowOpacity: 0.1,
+        shadowRadius: 3,
+      },
+      android: {
+        elevation: 20,
+      },
+    }),
+    alignItems: 'center',
+    backgroundColor: '#048B78',
+    color: 'white',
+    paddingVertical: 20,
+  },
+
+
+
+
+
   tabBarInfoText: {
     fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
+    color: 'white',
     textAlign: 'center',
   },
   navigationFilename: {
