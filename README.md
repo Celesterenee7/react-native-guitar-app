@@ -24,7 +24,11 @@
 
 ## Schedule for 2/28
 
-* 8:00am to 11:00am : Build out the componenet structure for the project
+* 8am to 11am : Build out the componenet structure for the project
+* 11am to 1pm : Decide on how to build app. Create one by scratch and another with pre built template
+* 1pm to 3pm  : Build bottom navbar options for moving around the app
+* 3pm to 4pm  : Build and styyle search bar for search screen page
+* 4pm to 5pm  : Update README.md and add image of basic componenet structure
 
 ## Specifications:
 

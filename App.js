@@ -27,14 +27,6 @@ function FavTabs() {
   );
 }
 
-function Songs() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'white' }}>
-      <Text>Songs</Text>
-    </View>
-  );
-}
-
 
 function Search() {
   return (
@@ -72,16 +64,6 @@ function MyTabs() {
           tabBarLabel: 'My Tabs',
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="guitar-acoustic" color={color} size={size} />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Songs"
-        component={Songs}
-        options={{
-          tabBarLabel: 'Songs',
-          tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="music" color={color} size={size} />
           ),
         }}
       />
