@@ -1,9 +1,10 @@
 import React from 'react';
 import Tab from './Tab';
+import { Button, View, Text } from 'react-native';
 
 const TabsList = ({ tabs }) => {
     return (
-        <div>
+        <View>
             {
                tabs.map((song) => {
                     return (
@@ -17,7 +18,7 @@ const TabsList = ({ tabs }) => {
                     );
                 })
            }
-        </div>
+        </View>
     );
 }
 

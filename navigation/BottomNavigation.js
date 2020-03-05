@@ -1,20 +1,18 @@
 import * as React from 'react';
 import { Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import SearchBarNavigator from './SearchBarNavigator';
+import SearchScreen from './../screens/SearchScreen';
+import HomeScreen from './../screens/HomeScreen';
 import { MaterialCommunityIcons } from 'react-native-vector-icons';
 import { Feather } from 'react-native-vector-icons';
 
 
-
-
 function HomeFeed() {
   return (
-    
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'white' }}>
-      <Text>Welcome!</Text>
+      <HomeScreen />
     </View>
   );
 }
@@ -31,7 +29,7 @@ function FavTabs() {
 function Search() {
   return (
     <View>
-      <SearchBarNavigator />
+      <SearchScreen/>
     </View>
   );
 }
@@ -81,13 +79,10 @@ function MyTabs() {
   );
 }
 
-
-
 export default function App() {
   
   return (
     <NavigationContainer>
-     
       <MyTabs />
     </NavigationContainer>
   );
