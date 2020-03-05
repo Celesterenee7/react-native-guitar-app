@@ -1,95 +1,79 @@
 import * as React from 'react';
-import {
-  Text,
-  View,
-  StyleSheet,
-  TextInput,
-  FlatList,
-  Keyboard,
-} from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
-import * as Animate from 'react-native-animatable';
-const listItems = [
-  'My Tabs',
-  'Luke Combs',
-  'Taylor Swift'
-];
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import TextField from '@material-ui/core/TextField';
+import SearchIcon from '@material-ui/icons/Search';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import { Toolbar } from 'react-native-material-ui';
 
-export default class App extends React.Component {
-  state = {
-    searchBarFocused: false,
-  };
-  componentDidMount() {
-    this.keyboardDidShow = Keyboard.addListener(
-      'keyboardDidShow',
-      this.keyboardDidShow
-    );
-    this.keyboardWillShow = Keyboard.addListener(
-      'keyboardWillShow',
-      this.keyboardWillShow
-    );
-    this.keyboardWillHide = Keyboard.addListener(
-      'keyboardWillHide',
-      this.keyboardWillHide
-    );
+
+const useStyles = makeStyles(theme => ({
+	root: {
+	
+	},
+	textfield: {
+		margin: '2vh',
+		height: '1em',
+		textAlign: 'center',
+		color: 'orange',
+		fontSize: '30px'
+	},
+	button: {
+		margin: '1.5vh',
+		color: 'white',
+		fontSize: '7em'
+	},
+	input: {
+		background: 'white',
+		borderRadius: '4px',
+		color: 'white'
+
+	}
+}));
+
+
+const Searchbox = ({ searchChange, searchTabs }) => {
+	const classes = useStyles();
+	const onKeyDown = (event) => {
+		if (event.key === "Enter" || event.code === "NumpadEnter") {
+			searchTabs()
+		}
   }
-
-  keyboardDidShow = () => {
-    this.setState({ searchBarFocused: true });
-  };
-
-  keyboardWillShow = () => {
-    this.setState({ searchBarFocused: true });
-  };
-
-  keyboardWillHide = () => {
-    this.setState({ searchBarFocused: false });
-  };
-  render() {
-    return (
-      <View style={{ flex: 1 }}>
-        <View
-          style={{
-            height: 80,
-            backgroundColor: '#83FAE7',
-            justifyContent: 'center',
-            paddingHorizontal: 35,
-          }}>
-          <Animate.View
-            animation="slideInRight"
-            duration={2000}
-            style={{
-              height: 50,
-              backgroundColor: 'white',
-              flexDirection: 'row',
-              padding: 15,
-              alignItems: 'center',
-            }}>
-            <Icon
-              name={
-                this.state.searchBarFocused ? 'md-arrow-back' : 'ios-search'
-              }
-              style={{ fontSize: 20 }}
-            />
-            <TextInput
-              placeholder="Search"
-              style={{ fontSize: 20, paddingLeft: 15 }}
-            />
-          </Animate.View>
-        </View>
-        <FlatList
-          style={{
-            backgroundColor: this.state.searchBarFocused
-              ? 'rgba(0,0,0,0.3)'
-              : 'white',
-          }}
-          data={listItems}
-          renderItem={({ item }) => (
-            <Text style={{ padding: 20, paddingLeft: 30, fontSize: 20 }}>{item}</Text>
-          )}
-          keyExtractor={(item, index) => index.toString()}
-        />
-      </View>
-    );
-  }
+  
+	return (
+		<Card className={classes.root} square >
+			<Toolbar style={{ container: { backgroundColor: '#57C6AF' }}}
+      background='#57C6AF'
+      leftElement="menu"
+      centerElement="Searchable"
+      searchable={{
+        autoFocus: true,
+        placeholder: 'Search',
+      }}
+      rightElement={{
+        menu: {
+            icon: "more-vert",
+            labels: ["item 1", "item 2"]
+        }
+    }}
+    onRightElementPress={ (label) => { console.log(label) }}
+				id="input-with-icon-textfield"
+				label="Search"
+				variant="outlined"
+				// color="primary"
+				onChange={searchChange}
+				onKeyDown={onKeyDown}
+				className={classes.textfield}
+				InputProps={{
+					startAdornment: (
+						<InputAdornment className={classes.input} position="start">
+							<SearchIcon />
+						</InputAdornment>
+					)
+				}}
+			/>
+		</Card>
+	);
 }
+
+export default Searchbox
