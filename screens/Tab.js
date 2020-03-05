@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Link from '@material-ui/core/Link';
-import ListItem from '@material-ui/core/ListItem';
+import { ListItem } from 'react-native-material-ui';
 import StarRoundedIcon from '@material-ui/icons/StarRounded';
 
 

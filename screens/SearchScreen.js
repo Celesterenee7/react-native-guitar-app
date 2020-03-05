@@ -5,6 +5,7 @@ import TabsList from './TabsList';
 import Typography from '@material-ui/core/Typography';
 import { Button, View, Text } from 'react-native';
 
+
 const SearchScreen = () => {
   const [tabs, setTabs] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -35,6 +36,7 @@ const SearchScreen = () => {
           searchChange={onSearchChange}
           searchTabs={onSearchTabs}
         />
+        {/* <Text>Hellooooooo</Text> */}
         {
           loading
             ? <Spinner />
@@ -44,10 +46,7 @@ const SearchScreen = () => {
                  </Typography>
               : <Text>
                 <TabsList tabs={currentTabs}/>
-                {/* { tabs.length>12
-                ? <Pagination paginate={paginate} tabsPerPage={tabsPerPage} totalTabs={tabs.length}/>
-                : null
-                } */}
+              <Text>Hellooooooo</Text>
               </Text>
         }      
       </View>
