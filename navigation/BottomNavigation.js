@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import SearchScreen from './../screens/SearchScreen';
 import HomeScreen from './../screens/HomeScreen';
+import FavTabsScreen from './../screens/FavTabsScreen';
 import { MaterialCommunityIcons } from 'react-native-vector-icons';
 import { Feather } from 'react-native-vector-icons';
 
@@ -19,7 +20,7 @@ function HomeFeed() {
 function FavTabs() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'white' }}>
-      <Text>Favorite Tabs</Text>
+      <FavTabsScreen/>
     </View>
   );
 }
