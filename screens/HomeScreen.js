@@ -18,11 +18,9 @@ export default class ListWithSearchView extends Component {
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     this.state = {
       dataSource: ds.cloneWithRows([
-        {icon:"https://png.icons8.com/user-folder/color/40/2ecc71", description: "The Beatles - Blackbird"},
-        {icon:"https://png.icons8.com/find-user-male/color/100/2ecc71", description: "Johnny Cash - Walk The Line"}, 
-        {icon:"https://png.icons8.com/desktop/office/40/2ecc71", description: "Joni Mitchell - A Case of You"}, 
-        {icon:"https://png.icons8.com/firefox/color/40/2ecc71", description: "Luke Combs - Hurricane"}, 
-        {icon:"https://png.icons8.com/pc-on-desk/color/40/2ecc71", description: "Taylor Swift - Call it What You Want"}, 
+        {icon:"https://png.icons8.com/user-folder/color/40/2ecc71", description: "What's New"},
+        {icon:"https://png.icons8.com/find-user-male/color/100/2ecc71", description: "Search By Genre"}, 
+        {icon:"https://png.icons8.com/desktop/office/40/2ecc71", description: "Account Profile"}, 
       ]),
     };
   }
@@ -55,6 +53,7 @@ const styles = StyleSheet.create({
     width: '100%',
     flex: 1,
     backgroundColor: '#EBEBEB',
+    paddingTop: '80px'
   },
   formContent:{
     flexDirection: 'row',
