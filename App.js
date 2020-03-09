@@ -50,7 +50,7 @@ function BottomNavTabs() {
         options={{
           tabBarLabel: 'Home',
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="home" color={color} size={26} />
+            <MaterialCommunityIcons name="home" color={color} size={20} />
           ),
         }}
       />
@@ -60,7 +60,7 @@ function BottomNavTabs() {
         options={{
           tabBarLabel: 'My Tabs',
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="guitar-acoustic" color={color} size={26} />
+            <MaterialCommunityIcons name="guitar-acoustic" color={color} size={20} />
           ),
         }}
       />
@@ -70,7 +70,7 @@ function BottomNavTabs() {
         options={{
           tabBarLabel: 'Search',
           tabBarIcon: ({ color }) => (
-            <Feather name="search" color={color} size={26} />
+            <Feather name="search" color={color} size={20} />
           ),
         }}
       />
