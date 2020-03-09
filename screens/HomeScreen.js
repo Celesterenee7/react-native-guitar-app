@@ -67,17 +67,16 @@ export default function Home() {
         keyExtractor={item => item.id}
         extraData={selected}
       />
-      <ImageGridScreen/>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    // width: '100%',
+    width: '100%',
     flex: 1,
     marginTop: Constants.statusBarHeight,
-    // marginTop: 50,
+    marginBottom: 0
   },
   item: {
     backgroundColor: '#EBEBEB',

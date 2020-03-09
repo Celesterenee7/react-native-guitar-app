@@ -54,6 +54,7 @@ export default function FavTabs() {
   );
 
   return (
+    <View style={styles.mainContainer}>
     <SafeAreaView style={styles.container}>
       <FlatList
         data={DATA}
@@ -68,8 +69,9 @@ export default function FavTabs() {
         keyExtractor={item => item.id}
         extraData={selected}
       />
-      <ImageGridScreen/>
     </SafeAreaView>
+    <ImageGridScreen/>
+    </View>
   );
 }
 
@@ -78,6 +80,10 @@ const styles = StyleSheet.create({
     // width: '100%',
     flex: 1,
     marginTop: Constants.statusBarHeight
+  },
+  mainContainer: {
+    width: '100%',
+    flex: 1,
   },
   item: {
     backgroundColor: '#EBEBEB',
