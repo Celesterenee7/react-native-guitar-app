@@ -6,10 +6,10 @@
 * To create a user friendly app for musicians that want to learn covers of songs from their smart phone.
 
 ## Component Structure:
-![alt text](https://raw.githubusercontent.com/Celesterenee7/react-native-guitar-app/master/src/assets/images/guitar-app.jpeg)
+![alt text](https://raw.githubusercontent.com/Celesterenee7/react-native-guitar-app/master/assets/images/guitar-app.jpeg)
 
 ## Static Version & UI State:
-![alt text](https://raw.githubusercontent.com/Celesterenee7/react-native-guitar-app/master/src/assets/images/mobileview.jpeg)
+![alt text](https://raw.githubusercontent.com/Celesterenee7/react-native-guitar-app/master/assets/images/mobileview.jpeg)
 
 ## List of the absolute minimum features the project requires to meet this purpose or goal:
 * Able to view as an app on their mobile device
