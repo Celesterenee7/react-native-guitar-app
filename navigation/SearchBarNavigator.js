@@ -1,6 +1,4 @@
 import * as React from 'react';
-import SearchIcon from '@material-ui/icons/Search';
-import InputAdornment from '@material-ui/core/InputAdornment';
 import { Toolbar } from 'react-native-material-ui';
 import { View } from 'react-native';
 
@@ -17,16 +15,7 @@ const SearchBarNavigator = ({ searchChange, searchTabs }) => {
         searchable={{
         autoFocus: true,
 		placeholder: 'Search'
-		
-      }}
-		
-		InputProps={{
-		startAdornment: (
-		<InputAdornment position="start">
-				<SearchIcon />
-		</InputAdornment>
-					)
-				}}
+		 }}
 			/>
 			</View>
 	);

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import SearchScreen from './screens/SearchScreen';
@@ -7,6 +7,8 @@ import HomeScreen from './screens/HomeScreen';
 import FavTabsScreen from './screens/FavTabsScreen';
 import { MaterialCommunityIcons } from 'react-native-vector-icons';
 import { Feather } from 'react-native-vector-icons';
+import { StyleSheet, Text, StatusBar, ActivityIndicator } from 'react-native';
+import * as Font from 'expo-font';
 
 function HomeFeed() {
   return (
@@ -78,11 +80,40 @@ function BottomNavTabs() {
   );
 }
 
-export default function App() {
+export default class App extends React.Component {
+
+  state = {
+      assetsLoaded: false,
+  };
+
+  async componentDidMount() {
+      await Font.loadAsync({
+          'roboto-medium': require('./assets/fonts/Roboto-Medium.ttf')
+      });
   
-  return (
-    <NavigationContainer>
-      <BottomNavTabs />
-    </NavigationContainer>
-  );
+      this.setState({ assetsLoaded: true });
+  }
+
+  render() {
+
+      const {assetsLoaded} = this.state;
+
+      if( assetsLoaded ) {
+          return (
+              
+                   <NavigationContainer>
+                      <BottomNavTabs />
+                   </NavigationContainer>
+              
+          );
+      }
+      else {
+          return (
+              <View >
+                  <ActivityIndicator />
+                  <StatusBar barStyle="default" />
+              </View>
+          );
+      }
+  }
 }

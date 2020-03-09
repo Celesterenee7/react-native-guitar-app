@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Tab Navigation Template",
+    "name": "Capston Project",
     "slug": "Guitar-Project",
     "privacy": "public",
     "sdkVersion": "36.0.0",
@@ -11,10 +11,9 @@
     ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
     "scheme": "myapp",
     "splash": {
-      "image": "./assets/images/splash.png",
+      "image": "./assets/images/guitar.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
