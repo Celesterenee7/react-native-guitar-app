@@ -1,111 +1,88 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
+  SafeAreaView,
+  TouchableOpacity,
+  FlatList,
   StyleSheet,
   Text,
-  View,
-  TouchableHighlight,
-  Image,
-  Alert,
-  ScrollView,
-  TextInput,
-  ListView
 } from 'react-native';
+import Constants from 'expo-constants';
 
-export default class ListWithSearchView extends Component {
+const DATA = [
+  {
+    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+    title: 'Whats New',
+  },
+  {
+    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+    title: 'My Tabs',
+  },
+  {
+    id: '58694a0f-3da1-471f-bd96-145571e29d72',
+    title: 'Account Profile',
+  },
+];
 
-  constructor(props) {
-    super(props);
-    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-    this.state = {
-      dataSource: ds.cloneWithRows([
-        {icon:"https://png.icons8.com/user-folder/color/40/2ecc71", description: "What's New"},
-        {icon:"https://png.icons8.com/find-user-male/color/100/2ecc71", description: "Search By Genre"}, 
-        {icon:"https://png.icons8.com/desktop/office/40/2ecc71", description: "Account Profile"}, 
-      ]),
-    };
-  }
+function Item({ id, title, selected, onSelect }) {
+  return (
+    <TouchableOpacity
+      onPress={() => onSelect(id)}
+      style={[
+        styles.item,
+        { backgroundColor: selected ? 'rgb(131, 250, 231)' : '#EBEBEB' },
+      ]}
+    >
+      <Text style={styles.title}>{title}</Text>
+    </TouchableOpacity>
+  );
+}
 
-  onClickListener = (viewId) => {
-    Alert.alert("Alert", "Button pressed "+viewId);
-  }
+export default function App() {
+  const [selected, setSelected] = React.useState(new Map());
 
-  render() {
-    return (
-      <View style={styles.container}>
-        <ListView style={styles.notificationList} enableEmptySections={true}
-          dataSource={this.state.dataSource}
-          renderRow={(notification) => {
-            return (
-              <View style={styles.notificationBox}>
-                <Image style={styles.image}
-                  source={{uri: notification.icon}}/>
-                
-                <Text style={styles.description}>{notification.description}</Text>
-              </View>
-            )}}/>
-      </View>
-    );
-  }
+  const onSelect = React.useCallback(
+    id => {
+      const newSelected = new Map(selected);
+      newSelected.set(id, !selected.get(id));
+
+      setSelected(newSelected);
+    },
+    [selected],
+  );
+
+  return (
+    <SafeAreaView style={styles.container}>
+      <FlatList
+        data={DATA}
+        renderItem={({ item }) => (
+          <Item
+            id={item.id}
+            title={item.title}
+            selected={!!selected.get(item.id)}
+            onSelect={onSelect}
+          />
+        )}
+        keyExtractor={item => item.id}
+        extraData={selected}
+      />
+    </SafeAreaView>
+  );
 }
 
 const styles = StyleSheet.create({
   container: {
     width: '100%',
     flex: 1,
+    marginTop: Constants.statusBarHeight,
+  },
+  item: {
     backgroundColor: '#EBEBEB',
-    paddingTop: '80px'
+    padding: 20,
+    borderRadius:5,
+    marginVertical: 8,
+    marginHorizontal: 16,
   },
-  formContent:{
-    flexDirection: 'row',
-    marginTop: 50,
+  title: {
+    fontSize: 32,
   },
-  inputContainer: {
-      borderBottomColor: '#F5FCFF',
-      backgroundColor: '#FFFFFF',
-      borderRadius:20,
-      borderBottomWidth: 1,
-      height:20,
-      flexDirection: 'row',
-      alignItems:'center',
-      flex:1,
-      margin:20,
-  },
-  icon:{
-    width:30,
-    height:30,
-  },
-  iconBtnSearch:{
-    alignSelf:'center'
-  },
-  inputs:{
-      height:45,
-      marginLeft:16,
-      borderBottomColor: '#FFFFFF',
-      flex:1,
-  },
-  inputIcon:{
-    marginLeft:15,
-    justifyContent: 'center'
-  },
-  notificationList:{
-    marginTop:20,
-    padding:50,
-  },
-  notificationBox: {
-    padding:20,
-    marginTop:5,
-    marginBottom:5,
-    backgroundColor: '#FFFFFF',
-    flexDirection: 'row',
-    borderRadius:10,
-  },
-  image:{
-    width:45,
-    height:45,
-  },
-  description:{
-    fontSize:18,
-    color: "#3498db",
-    marginLeft:10,
-  },
-}); 
+});

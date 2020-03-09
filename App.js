@@ -9,6 +9,7 @@ import { MaterialCommunityIcons } from 'react-native-vector-icons';
 import { Feather } from 'react-native-vector-icons';
 
 
+
 function HomeFeed() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'white' }}>
@@ -36,7 +37,7 @@ function Search() {
 
 const Tab = createBottomTabNavigator();
 
-function MyTabs() {
+function BottomNavTabs() {
   return (
     <Tab.Navigator
       initialRouteName="HomeFeed"
@@ -83,7 +84,7 @@ export default function App() {
   
   return (
     <NavigationContainer>
-      <MyTabs />
+      <BottomNavTabs />
     </NavigationContainer>
   );
 }
