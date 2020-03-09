@@ -1,13 +1,15 @@
 import React from 'react';
-import ImageGridScreen from './ImageGridScreen';
+import ImageTabScreen from './ImageTabScreen';
 import {
   SafeAreaView,
   TouchableOpacity,
   FlatList,
   StyleSheet,
   Text,
+  View
 } from 'react-native';
 import Constants from 'expo-constants';
+import { Image } from 'react-native'
 
 
 const DATA = [
@@ -53,6 +55,7 @@ export default function Home() {
   );
 
   return (
+    <View style={styles.mainContainer}>
     <SafeAreaView style={styles.container}>
       <FlatList
         data={DATA}
@@ -68,6 +71,8 @@ export default function Home() {
         extraData={selected}
       />
     </SafeAreaView>
+    <ImageTabScreen/>
+    </View>
   );
 }
 
@@ -77,6 +82,10 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: Constants.statusBarHeight,
     marginBottom: 0
+  },
+  mainContainer: {
+    width: '100%',
+    flex: 1,
   },
   item: {
     backgroundColor: '#EBEBEB',
