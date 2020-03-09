@@ -8,6 +8,9 @@
 ## Component Structure:
 ![alt text](https://raw.githubusercontent.com/Celesterenee7/react-native-guitar-app/master/src/assets/images/guitar-app.jpeg)
 
+## Static Version & UI State:
+<!-- ![alt text](https://raw.githubusercontent.com/Celesterenee7/react-native-guitar-app/master/src/assets/images/guitar-app.jpeg) -->
+
 ## List of the absolute minimum features the project requires to meet this purpose or goal:
 * Able to view as an app on their mobile device
 * Displays chords and tabs for a song
