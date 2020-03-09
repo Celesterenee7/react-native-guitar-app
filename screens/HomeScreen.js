@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import Constants from 'expo-constants';
 
+
 const DATA = [
   {
     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
@@ -37,7 +38,7 @@ function Item({ id, title, selected, onSelect }) {
   );
 }
 
-export default function App() {
+export default function Home() {
   const [selected, setSelected] = React.useState(new Map());
 
   const onSelect = React.useCallback(
@@ -81,7 +82,7 @@ const styles = StyleSheet.create({
     padding: 20,
     marginVertical: 8,
     marginHorizontal: 16,
-    borderBottomColor: 'black',
+    borderBottomColor: '#DBDBDA',
     borderBottomWidth: 1,
   },
   title: {
