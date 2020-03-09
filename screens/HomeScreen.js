@@ -29,7 +29,7 @@ function Item({ id, title, selected, onSelect }) {
       onPress={() => onSelect(id)}
       style={[
         styles.item,
-        { backgroundColor: selected ? 'rgb(131, 250, 231)' : '#EBEBEB' },
+        { backgroundColor: selected ? 'rgb(131, 250, 231)' : 'white' },
       ]}
     >
       <Text style={styles.title}>{title}</Text>
@@ -74,15 +74,17 @@ const styles = StyleSheet.create({
     width: '100%',
     flex: 1,
     marginTop: Constants.statusBarHeight,
+    // marginTop: 50,
   },
   item: {
     backgroundColor: '#EBEBEB',
     padding: 20,
-    borderRadius:5,
     marginVertical: 8,
     marginHorizontal: 16,
+    borderBottomColor: 'black',
+    borderBottomWidth: 1,
   },
   title: {
-    fontSize: 32,
+    fontSize: 22,
   },
 });
