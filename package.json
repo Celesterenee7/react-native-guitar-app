@@ -33,6 +33,7 @@
     "react": "~16.9.0",
     "react-chord-diagram": "^1.5.0",
     "react-dom": "~16.9.0",
+    "react-grid-gallery": "^0.5.5",
     "react-guitar-chord": "^1.1.0",
     "react-justified-grid": "0.0.8",
     "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz",
