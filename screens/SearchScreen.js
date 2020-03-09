@@ -1,56 +1,95 @@
 import React, { useState } from 'react';
 import SearchBarNavigator from './../navigation/SearchBarNavigator';
-// import Spinner from './components/Spinner';
-import TabsList from './TabsList';
-import Typography from '@material-ui/core/Typography';
 import { Button, View, Text } from 'react-native';
+import {
+  SafeAreaView,
+  TouchableOpacity,
+  FlatList,
+  StyleSheet
+} from 'react-native';
+import Constants from 'expo-constants';
 
 
-const SearchScreen = () => {
-  const [tabs, setTabs] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [searchfield, setSearchfield] = useState('');
-  const [message, setMessage] = useState('');
+const DATA = [
+  {
+    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+    title: 'Whats New',
+  },
+  {
+    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+    title: 'My Tabs',
+  },
+  {
+    id: '58694a0f-3da1-471f-bd96-145571e29d72',
+    title: 'Account Profile',
+  },
+];
 
-  const onSearchChange = (event) => {
-     setSearchfield(event.target.value)
-  }
-
-  const onSearchTabs = () => {
-    setTabs([]);
-    setLoading(true)
-      fetch(`https://www.songsterr.com/a/ra/songs.json?pattern=${searchfield}`)
-        .then(response => response.json())
-        .then(items => {
-          if (items.length === 0) {
-            setMessage('No results found :('); setLoading(false)
-          } else {
-            setTabs(items); setLoading(false)
-          }
-        })
-  }
-
+function Item({ id, title, selected, onSelect }) {
   return (
-      <View >
-        <SearchBarNavigator 
-          searchChange={onSearchChange}
-          searchTabs={onSearchTabs}
-        />
-        {/* <Text>Hellooooooo</Text> */}
-        {
-          loading
-            ? <Spinner />
-            : tabs.length===0
-              ?  <Typography gutterBottom>
-                  {message}
-                 </Typography>
-              : <Text>
-                <TabsList tabs={currentTabs}/>
-              <Text>Hellooooooo</Text>
-              </Text>
-        }      
-      </View>
+    <TouchableOpacity
+      onPress={() => onSelect(id)}
+      style={[
+        styles.item,
+        { backgroundColor: selected ? 'rgb(131, 250, 231)' : 'white' },
+      ]}
+    >
+      <Text style={styles.title}>{title}</Text>
+    </TouchableOpacity>
   );
 }
 
-export default SearchScreen;
+export default function SearchScreen() {
+  const [selected, setSelected] = React.useState(new Map());
+
+  const onSelect = React.useCallback(
+    id => {
+      const newSelected = new Map(selected);
+      newSelected.set(id, !selected.get(id));
+
+      setSelected(newSelected);
+    },
+    [selected],
+  );
+
+  return (
+    <View>
+    <SafeAreaView style={styles.container}>
+      <FlatList
+        data={DATA}
+        renderItem={({ item }) => (
+          <Item
+            id={item.id}
+            title={item.title}
+            selected={!!selected.get(item.id)}
+            onSelect={onSelect}
+          />
+        )}
+        keyExtractor={item => item.id}
+        extraData={selected}
+      />
+    </SafeAreaView>
+    <SearchBarNavigator/>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    width: '100%',
+    flex: 1,
+    marginTop: Constants.statusBarHeight,
+    // marginTop: 50,
+  },
+  item: {
+    backgroundColor: '#EBEBEB',
+    padding: 20,
+    marginVertical: 8,
+    marginHorizontal: 16,
+    borderBottomColor: '#DBDBDA',
+    borderBottomWidth: 1,
+  },
+  title: {
+    fontSize: 22,
+  },
+});
