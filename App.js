@@ -88,7 +88,7 @@ export default class App extends React.Component {
 
   async componentDidMount() {
       await Font.loadAsync({
-          'roboto-medium': require('./assets/fonts/Roboto-Medium.ttf')
+          'roboto': require('./assets/fonts/Roboto.ttf')
       });
   
       this.setState({ assetsLoaded: true });

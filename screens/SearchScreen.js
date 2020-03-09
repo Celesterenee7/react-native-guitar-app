@@ -12,5 +12,3 @@ export default class SearchScreen extends Component {
     );
   }
 };
-
-
