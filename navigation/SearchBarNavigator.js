@@ -2,10 +2,7 @@ import * as React from 'react';
 import SearchIcon from '@material-ui/icons/Search';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import { Toolbar } from 'react-native-material-ui';
-import {  View, Text } from 'react-native';
-import styles from './../App.css';
-
-
+// import {  View, Text } from 'react-native';
 
 const SearchBarNavigator = ({ searchChange, searchTabs }) => {
 	const onKeyDown = (event) => {

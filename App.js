@@ -7,14 +7,6 @@ import HomeScreen from './screens/HomeScreen';
 import FavTabsScreen from './screens/FavTabsScreen';
 import { MaterialCommunityIcons } from 'react-native-vector-icons';
 import { Feather } from 'react-native-vector-icons';
-import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
-  listenOrientationChange as lor,
-  removeOrientationListener as rol
-} from 'react-native-responsive-screen';
-
-
 
 function HomeFeed() {
   return (
