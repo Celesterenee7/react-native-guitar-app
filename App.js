@@ -7,6 +7,12 @@ import HomeScreen from './screens/HomeScreen';
 import FavTabsScreen from './screens/FavTabsScreen';
 import { MaterialCommunityIcons } from 'react-native-vector-icons';
 import { Feather } from 'react-native-vector-icons';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+  listenOrientationChange as lor,
+  removeOrientationListener as rol
+} from 'react-native-responsive-screen';
 
 
 
@@ -51,8 +57,8 @@ function BottomNavTabs() {
         component={HomeFeed}
         options={{
           tabBarLabel: 'Home',
-          tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="home" color={color} size={size} />
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="home" color={color} size={26} />
           ),
         }}
       />
@@ -61,8 +67,8 @@ function BottomNavTabs() {
         component={FavTabs}
         options={{
           tabBarLabel: 'My Tabs',
-          tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="guitar-acoustic" color={color} size={size} />
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="guitar-acoustic" color={color} size={26} />
           ),
         }}
       />
@@ -71,8 +77,8 @@ function BottomNavTabs() {
         component={Search}
         options={{
           tabBarLabel: 'Search',
-          tabBarIcon: ({ color, size }) => (
-            <Feather name="search" color={color} size={size} />
+          tabBarIcon: ({ color }) => (
+            <Feather name="search" color={color} size={26} />
           ),
         }}
       />
