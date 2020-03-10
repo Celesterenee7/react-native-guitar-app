@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View } from 'react-native';
+import { View, StyleSheet, Text, StatusBar, ActivityIndicator } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import SearchScreen from './screens/SearchScreen';
@@ -7,8 +7,15 @@ import HomeScreen from './screens/HomeScreen';
 import FavTabsScreen from './screens/FavTabsScreen';
 import { MaterialCommunityIcons } from 'react-native-vector-icons';
 import { Feather } from 'react-native-vector-icons';
-import { StyleSheet, Text, StatusBar, ActivityIndicator } from 'react-native';
+import thunk from 'redux-thunk';
+import { Provider } from 'react-redux';
+import { applyMiddleware, combineReducers, createStore } from 'redux';
+import reducers from './app/reducers';
 import * as Font from 'expo-font';
+
+const rootReducer = combineReducers({...reducers});
+const store = createStore(rootReducer, applyMiddleware(thunk));
+
 
 function HomeFeed() {
   return (
@@ -109,10 +116,12 @@ export default class App extends React.Component {
       }
       else {
           return (
+            <Provider store={store}>
               <View >
                   <ActivityIndicator />
                   <StatusBar barStyle="default" />
               </View>
+              </Provider>
           );
       }
   }
