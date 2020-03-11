@@ -28,7 +28,14 @@ export default class Home extends Component {
   };
 
   _renderSong(song) {
-    return <Text>{song.name}</Text>;
+  return (
+    <View>
+    <Text>{song.name}</Text>
+    <Text>{song.lyrics}</Text>
+    <Text>{song.chords}</Text>
+    <Text>{song.tabs}</Text>
+    </View>
+   );
   }
 
   _renderSongs() {
@@ -67,6 +74,7 @@ export default class Home extends Component {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     marginTop: 64,
     marginHorizontal: 16,
   },
