@@ -1,7 +1,7 @@
 
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import Home from '../screens/home';
+import FavTabs from '../screens/FavTabs';
 import * as songsActions from '../actions/songsActions';
 
 const actions = {
@@ -19,4 +19,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Home);
+)(FavTabs);

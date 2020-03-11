@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import SearchScreen from './app/screens/SearchScreen';
 // import Home from './app/screens/home';
-import FavTabsScreen from './app/screens/FavTabsScreen';
+import FavTabsScreen from './app/screens/Home';
 import { MaterialCommunityIcons } from 'react-native-vector-icons';
 import { Feather } from 'react-native-vector-icons';
 import thunk from 'redux-thunk';
@@ -12,7 +12,8 @@ import { Provider } from 'react-redux';
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import reducers from './app/reducers';
 import * as Font from 'expo-font';
-import Home from './app/containers/homeContainer';
+import FavTabs from './app/containers/tabsContainer';
+import Home from './app/screens/Home';
 
 const rootReducer = combineReducers({...reducers});
 const store = createStore(rootReducer, applyMiddleware(thunk));
@@ -26,10 +27,10 @@ function HomeFeed() {
   );
 }
 
-function FavTabs() {
+function MyFavTabs() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'white' }}>
-      <FavTabsScreen/>
+      <FavTabs/>
     </View>
   );
 }
@@ -65,8 +66,8 @@ function BottomNavTabs() {
         }}
       />
       <Tab.Screen
-        name="FavTabs"
-        component={FavTabs}
+        name="MyFavTabs"
+        component={MyFavTabs}
         options={{
           tabBarLabel: 'My Tabs',
           tabBarIcon: ({ color }) => (
