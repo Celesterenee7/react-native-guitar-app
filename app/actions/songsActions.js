@@ -6,7 +6,7 @@ export function fetchSongs() {
       type: types.FETCH_SONGS
     });
     try {
-      let response = await fetch('http://localhost:5000/songs');
+      let response = await fetch('http://localhost:3000/songs');
       if (response.status !== 200) {
         throw new Error('FETCH_ERROR');
       }
@@ -30,7 +30,7 @@ export function createSong(song) {
       type: types.CREATE_SONG
     });
     try {
-      let response = await fetch('http://localhost:5000/songs', {
+      let response = await fetch('http://localhost:3000/songs', {
         method: 'POST',
         headers: {
           Accept: 'application/json',
