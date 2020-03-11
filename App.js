@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import SearchScreen from './app/screens/SearchScreen';
 // import Home from './app/screens/home';
-import FavTabsScreen from './app/screens/Home';
+// import FavTabsScreen from './app/screens/Home';
 import { MaterialCommunityIcons } from 'react-native-vector-icons';
 import { Feather } from 'react-native-vector-icons';
 import thunk from 'redux-thunk';
@@ -34,7 +34,6 @@ function MyFavTabs() {
     </View>
   );
 }
-
 
 function Search() {
   return (

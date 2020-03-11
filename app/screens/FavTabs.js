@@ -29,7 +29,7 @@ export default class FavTabs extends Component {
 
   _renderSong(song) {
   return (
-    <View>
+    <View style={styles.lyrics}>
     <Text>{song.name}</Text>
     <Text>{song.lyrics}</Text>
     <Text>{song.chords}</Text>
@@ -57,7 +57,9 @@ export default class FavTabs extends Component {
           onChangeText={name => this.setState({name})}
           value={this.state.name}
         />
-        <Button title="Create" onPress={this._createSong} />
+        <View>
+        <Button title="Add Song" onPress={this._createSong} />
+        </View>
       </View>
     );
   }
@@ -74,15 +76,23 @@ export default class FavTabs extends Component {
 
 const styles = StyleSheet.create({
   container: {
+    width: '50%',
     flex: 1,
     marginTop: 64,
     marginHorizontal: 16,
+  },
+  lyrics: {
+    flex: 1,
+    padding: 20,
   },
   textfield: {
     backgroundColor: '#eee',
     padding: 16,
     marginTop: 8,
   },
+  // bigButton: {
+  //   backgroundColor: "orange"
+  // },
 });
 
 
