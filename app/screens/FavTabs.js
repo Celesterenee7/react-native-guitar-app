@@ -76,7 +76,6 @@ export default class FavTabs extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    width: '50%',
     flex: 1,
     marginTop: 64,
     marginHorizontal: 16,
