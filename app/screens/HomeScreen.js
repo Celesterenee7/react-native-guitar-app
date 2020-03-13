@@ -1,5 +1,5 @@
 import React from 'react';
-import ImageTabScreen from './ImageTabScreen';
+import ImageTabScreen from '../../screens/ImageTabScreen';
 import {
   SafeAreaView,
   TouchableOpacity,

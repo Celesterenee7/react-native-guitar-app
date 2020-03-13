@@ -7,6 +7,7 @@ import {
   TextInput,
   Button,
 } from 'react-native';
+import FavTabsScreen from './FavTabsScreen';
 
 export default class FavTabs extends Component {
   constructor(props) {
@@ -64,19 +65,26 @@ export default class FavTabs extends Component {
 
   render() {
     return (
+      <View style={styles.mainContainer}>
       <ScrollView style={styles.container}>
+        <FavTabsScreen/>
         {this._renderSongs()}
         {this._renderCreateForm()}
       </ScrollView>
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
+    // width: '100%',
     flex: 1,
-    marginTop: 64,
     marginHorizontal: 16,
+  },
+  mainContainer: {
+    width: '100%',
+    flex: 1,
   },
   lyrics: {
     flex: 1,

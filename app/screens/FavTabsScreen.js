@@ -70,7 +70,7 @@ export default function FavTabs() {
         extraData={selected}
       />
     </SafeAreaView>
-    <ImageGridScreen/>
+    {/* <ImageGridScreen/> */}
     </View>
   );
 }
