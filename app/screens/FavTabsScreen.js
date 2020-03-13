@@ -70,7 +70,6 @@ export default function FavTabs() {
         extraData={selected}
       />
     </SafeAreaView>
-    {/* <ImageGridScreen/> */}
     </View>
   );
 }
@@ -84,6 +83,7 @@ const styles = StyleSheet.create({
   mainContainer: {
     width: '100%',
     flex: 1,
+    // marginBottom: 250
   },
   item: {
     backgroundColor: '#EBEBEB',

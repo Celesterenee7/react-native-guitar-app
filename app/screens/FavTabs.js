@@ -66,8 +66,8 @@ export default class FavTabs extends Component {
   render() {
     return (
       <View style={styles.mainContainer}>
-      <ScrollView style={styles.container}>
         <FavTabsScreen/>
+      <ScrollView style={styles.container}>
         {this._renderSongs()}
         {this._renderCreateForm()}
       </ScrollView>
@@ -87,7 +87,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   lyrics: {
-    flex: 1,
     padding: 20,
   },
   textfield: {

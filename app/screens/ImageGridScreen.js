@@ -25,11 +25,5 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     marginBottom: 250
-  },
-  secondContainer: {
-    flex: 1,
-    flexDirection: 'column',
-    alignItems: 'center',
-    marginBottom: 250
   }
 });
