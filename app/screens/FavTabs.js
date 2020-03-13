@@ -57,7 +57,7 @@ export default class FavTabs extends Component {
           onChangeText={name => this.setState({name})}
           value={this.state.name}
         />
-        <Button color="#83FAE7" title="Add Song" onPress={this._createSong} />
+        <Button color="rgb(87, 198, 175)" title="Add Song" onPress={this._createSong} />
       </View>
     );
   }
