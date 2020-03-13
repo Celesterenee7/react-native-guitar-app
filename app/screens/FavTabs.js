@@ -50,7 +50,7 @@ export default class FavTabs extends Component {
 
   _renderCreateForm() {
     return (
-      <View>
+      <View style={styles.inputContainer}>
         <TextInput
           style={styles.textfield}
           placeholder={'Name'}
@@ -86,10 +86,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#eee',
     padding: 16,
     marginTop: 8,
+    marginBottom: 10
   },
-  // bigButton: {
-  //   width: '30%'
-  // },
+  inputContainer: {
+    alignItems: 'center',
+    flex: 1,
+    justifyContent: 'center'
+  },
 });
 
 
