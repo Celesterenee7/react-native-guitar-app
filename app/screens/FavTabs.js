@@ -29,7 +29,7 @@ export default class FavTabs extends Component {
 
   _renderSong(song) {
   return (
-    <View style={styles.lyrics}>
+    <View key ={song.id} style={styles.lyrics}>
     <Text>{song.name}</Text>
     <Text>{song.lyrics}</Text>
     <Text>{song.chords}</Text>
