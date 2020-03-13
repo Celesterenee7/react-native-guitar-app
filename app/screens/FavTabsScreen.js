@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
   mainContainer: {
     width: '100%',
     flex: 1,
-    // marginBottom: 250
+    marginBottom: 30
   },
   item: {
     backgroundColor: '#EBEBEB',

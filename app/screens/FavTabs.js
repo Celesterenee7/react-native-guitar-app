@@ -13,7 +13,7 @@ export default class FavTabs extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
+      song: '',
     };
   }
 
@@ -22,10 +22,10 @@ export default class FavTabs extends Component {
   }
 
   _createSong = () => {
-    const {name} = this.state;
-    const song = {name};
+    const {name, lyrics, chords} = this.state;
+    const song = {name, lyrics, chords};
     this.props.actions.createSong(song);
-    this.setState({name: ''});
+    this.setState({name: '', lyrics: '', chords: ''});
   };
 
   _renderSong(song) {
@@ -58,6 +58,18 @@ export default class FavTabs extends Component {
           onChangeText={name => this.setState({name})}
           value={this.state.name}
         />
+           <TextInput
+          style={styles.textfield}
+          placeholder={'Lyrics'}
+          onChangeText={lyrics => this.setState({lyrics})}
+          value={this.state.lyrics}
+        />
+          <TextInput
+          style={styles.textfield}
+          placeholder={'Chords'}
+          onChangeText={chords => this.setState({chords})}
+          value={this.state.chords}
+        />
         <Button color="rgb(87, 198, 175)" title="Add Song" onPress={this._createSong} />
       </View>
     );
@@ -66,8 +78,10 @@ export default class FavTabs extends Component {
   render() {
     return (
       <View style={styles.mainContainer}>
-        <FavTabsScreen/>
       <ScrollView style={styles.container}>
+      <View>
+        <FavTabsScreen/>
+        </View>
         {this._renderSongs()}
         {this._renderCreateForm()}
       </ScrollView>
@@ -78,7 +92,6 @@ export default class FavTabs extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    // width: '100%',
     flex: 1,
     marginHorizontal: 16,
   },
@@ -87,18 +100,21 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   lyrics: {
-    padding: 20,
+    paddingLeft: 20,
+    paddingBottom: 10
   },
   textfield: {
+    flex: 1,
     backgroundColor: '#eee',
-    padding: 16,
-    marginTop: 8,
-    marginBottom: 10
+    padding: 10,
+    // marginTop: 8,
+    marginBottom: 10,
+    width: '80%'
   },
   inputContainer: {
     alignItems: 'center',
     flex: 1,
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
 });
 
