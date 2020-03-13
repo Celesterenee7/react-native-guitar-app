@@ -57,9 +57,7 @@ export default class FavTabs extends Component {
           onChangeText={name => this.setState({name})}
           value={this.state.name}
         />
-        <View>
-        <Button title="Add Song" onPress={this._createSong} />
-        </View>
+        <Button color="#83FAE7" title="Add Song" onPress={this._createSong} />
       </View>
     );
   }
@@ -90,7 +88,7 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
   // bigButton: {
-  //   backgroundColor: "orange"
+  //   width: '30%'
   // },
 });
 
