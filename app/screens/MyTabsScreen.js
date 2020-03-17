@@ -40,7 +40,7 @@ function Item({ id, title, selected, onSelect }) {
   );
 }
 
-export default function FavTabs() {
+export default function MyTabs() {
   const [selected, setSelected] = React.useState(new Map());
 
   const onSelect = React.useCallback(

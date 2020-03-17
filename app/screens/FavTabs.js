@@ -7,7 +7,7 @@ import {
   TextInput,
   Button,
 } from 'react-native';
-import FavTabsScreen from './FavTabsScreen';
+import FavTabsScreen from './MyTabsScreen';
 
 export default class FavTabs extends Component {
   constructor(props) {
