@@ -95,12 +95,6 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 18,
-  },
-  // grid: {
-  //   alignItems: 'stretch',
-  //   flex: 1,
-  //   flexDirection: 'row',
-  //   margin: 50
-  // }
+  }
 });
 

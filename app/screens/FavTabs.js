@@ -7,7 +7,7 @@ import {
   TextInput,
   Button,
 } from 'react-native';
-import FavTabsScreen from './MyTabsScreen';
+import MyTabsScreen from './MyTabsScreen';
 
 export default class FavTabs extends Component {
   constructor(props) {
@@ -80,7 +80,7 @@ export default class FavTabs extends Component {
       <View style={styles.mainContainer}>
       <ScrollView style={styles.container}>
       <View>
-        <FavTabsScreen/>
+        <MyTabsScreen/>
         </View>
         {this._renderSongs()}
         {this._renderCreateForm()}

@@ -1,20 +1,20 @@
 import * as React from 'react';
+import PropTypes from 'prop-types';
 import { Toolbar } from 'react-native-material-ui';
 import { View } from 'react-native';
 
 
-const SearchBarNavigator = ({ searchChange, searchTabs }) => {
-	const onKeyDown = (event) => {
-		if (event.key === "Enter" || event.code === "NumpadEnter") {
-			searchTabs()
-		}
-  }
+const SearchBarNavigator = (props) => {
+  const propTypes = {
+    onSearchPressed: PropTypes.func,
+ }
+ 
 	return (
 	<View>
-	<Toolbar style={{ container: { backgroundColor: '#57C6AF', boxShadow: 'none', height: 60 }}}
+	<Toolbar style={{ container: { backgroundColor: '#83FAE7', boxShadow: 'none', height: 60 }}}
         searchable={{
         autoFocus: true,
-		placeholder: 'Search'
+		    placeholder: 'Search'
 		 }}
 			/>
 			</View>
