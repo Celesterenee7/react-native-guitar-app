@@ -76,7 +76,6 @@ export default function MyTabs() {
 
 const styles = StyleSheet.create({
   container: {
-    // width: '100%',
     flex: 1,
     marginTop: Constants.statusBarHeight
   },
@@ -96,11 +95,5 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 18,
   },
-  // grid: {
-  //   alignItems: 'stretch',
-  //   flex: 1,
-  //   flexDirection: 'row',
-  //   margin: 50
-  // }
 });
 

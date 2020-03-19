@@ -1,94 +1,129 @@
-
 import * as React from 'react';
-import PropTypes from 'prop-types';
-import { Toolbar } from 'react-native-material-ui';
-import { View, StyleSheet } from 'react-native';
+import {
+  Text,
+  View,
+  StyleSheet,
+  FlatList,
+  ActivityIndicator,
+  Platform,
+} from 'react-native';
 import { SearchBar } from 'react-native-elements';
 
 export default class SearchBarNavigator extends React.Component {
-  state = {
-    search: '',
+  constructor(props) {
+    super(props);
+    //setting default state
+    this.state = { isLoading: true, search: '' };
+    this.arrayholder = [];
+  }
+  componentDidMount() {
+    return fetch('http://localhost:3000/songs')
+      .then(response => response.json())
+      .then(responseJson => {
+        this.setState(
+          {
+            isLoading: false,
+            dataSource: responseJson,
+          },
+          function() {
+            this.arrayholder = responseJson;
+          }
+        );
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }
+
+  search = text => {
+    console.log(text);
+  };
+  clear = () => {
+    this.search.clear();
   };
 
-  updateSearch = search => {
-    this.setState({ search });
+  SearchFilterFunction(text) {
+    //passing the inserted text in textinput
+    const newData = this.arrayholder.filter(function(item) {
+      //applying filter for the inserted text in search bar
+      const itemData = item.title ? item.title.toUpperCase() : ''.toUpperCase();
+      const textData = text.toUpperCase();
+      return itemData.indexOf(textData) > -1;
+    });
+
+    this.setState({
+      //setting the filtered newData on datasource
+      //After setting the data it will automatically re-render the view
+      dataSource: newData,
+      search: text,
+    });
+  }
+
+  ListViewItemSeparator = () => {
+    //Item sparator view
+    return (
+      <View
+        style={{
+          height: 0.3,
+          width: '90%',
+        }}
+      />
+    );
   };
 
   render() {
-    const { search } = this.state;
-
+    if (this.state.isLoading) {
+      //Loading View while data is loading
+      return (
+        <View style={{ flex: 1, paddingTop: 20 }}>
+          <ActivityIndicator />
+        </View>
+      );
+    }
     return (
-	<View >
-	<View>
-      <SearchBar
-	  	platform={'ios'}
-		containerStyle={styles.containerStyle}
-		inputContainerStyle={styles.inputContainerStyle}
-	    lightTheme
-        placeholder="Type Here..."
-        onChangeText={this.updateSearch}
-        value={search}
-      />
-	  </View>
-	  </View>
+      //ListView to show with textinput used as search bar
+      <View style={styles.viewStyle}>
+         <SearchBar
+	  	     platform={'ios'}
+		       containerStyle={styles.containerStyle}
+           inputContainerStyle={styles.inputContainerStyle}
+           onChangeText={text => this.SearchFilterFunction(text)}
+           onClear={text => this.SearchFilterFunction('')}
+           placeholder="My Tabs"
+           onChangeText={this.updateSearch}
+           value={this.state.search}
+        />
+        <FlatList
+          data={this.state.dataSource}
+          ItemSeparatorComponent={this.ListViewItemSeparator}
+          //Item Separator View
+          renderItem={({ item }) => (
+            // Single Comes here which will be repeatative for the FlatListItems
+            <Text style={styles.textStyle}>{item.title}</Text>
+          )}
+          enableEmptySections={true}
+          style={{ marginTop: 10 }}
+          keyExtractor={(item, index) => index.toString()}
+        />
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-	containerStyle: {
+  viewStyle: {
+    justifyContent: 'center',
+    flex: 1,
+    backgroundColor: 'white',
+    marginTop: Platform.OS == 'ios' ? 30 : 0,
+  },
+  textStyle: {
+    padding: 10,
+  },
+  	containerStyle: {
 		backgroundColor: 'rgb(238, 238, 238)'
 	},
 	inputContainerStyle: {
 		backgroundColor: 'white'
 	}
 });
-
-
-
-// const SearchBarNavigator = (props) => {
-//   const propTypes = {
-//     onSearchPressed: PropTypes.func,
-//  }
-
-//  async function fetchSongs() {
-// 	return async dispatch => {
-// 	  dispatch({
-// 		type: types.FETCH_SONGS
-// 	  });
-// 	  try {
-// 		let response = await fetch('http://localhost:3000/songs');
-// 		if (response.status !== 200) {
-// 		  throw new Error('FETCH_ERROR');
-// 		}
-// 		response = await response.json();
-// 		dispatch({
-// 		  type: types.FETCH_SONGS_SUCCESS,
-// 		  data: response
-// 		});
-// 	  } catch (error) {
-// 		dispatch({
-// 		  type: types.FETCH_SONGS_FAILURE,
-// 		  error
-// 		});
-// 	  }
-// 	};
-//   }
- 
-// 	return (
-// 	<View>
-// 	<Toolbar style={{ container: { backgroundColor: '#83FAE7', boxShadow: 'none', height: 60 }}}
-// 	onSearchPressed={fetchSongs}
-// 	isSearchActive={isSearchActiveInternal}
-
-//         // searchable={{
-//         // autoFocus: true,
-// 		// 	placeholder: 'Search',
-			
-// 		//  }}
-// 			/>
-// 			</View>
-// 	);
-// }
-
-// export default SearchBarNavigator;
