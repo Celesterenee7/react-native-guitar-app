@@ -1,23 +1,16 @@
 import * as React from 'react';
-import {
-  Text,
-  View,
-  StyleSheet,
-  FlatList,
-  ActivityIndicator,
-  Platform,
-} from 'react-native';
+import { Text, View, StyleSheet, FlatList, ActivityIndicator, Platform } from 'react-native';
 import { SearchBar } from 'react-native-elements';
+import { ScrollView } from 'react-native-gesture-handler';
 
-export default class SearchBarNavigator extends React.Component {
+export default class App extends React.Component {
   constructor(props) {
     super(props);
-    //setting default state
     this.state = { isLoading: true, search: '' };
     this.arrayholder = [];
   }
   componentDidMount() {
-    return fetch('http://localhost:3000/songs')
+    return fetch('https://my-json-server.typicode.com/Celesterenee7/songs-api/songs')
       .then(response => response.json())
       .then(responseJson => {
         this.setState(
@@ -34,46 +27,26 @@ export default class SearchBarNavigator extends React.Component {
         console.error(error);
       });
   }
-
   search = text => {
     console.log(text);
   };
   clear = () => {
     this.search.clear();
   };
-
   SearchFilterFunction(text) {
-    //passing the inserted text in textinput
     const newData = this.arrayholder.filter(function(item) {
-      //applying filter for the inserted text in search bar
-      const itemData = item.title ? item.title.toUpperCase() : ''.toUpperCase();
+      const itemData = item.name ? item.name.toUpperCase() : ''.toUpperCase();
       const textData = text.toUpperCase();
       return itemData.indexOf(textData) > -1;
     });
-
     this.setState({
-      //setting the filtered newData on datasource
-      //After setting the data it will automatically re-render the view
       dataSource: newData,
-      search: text,
+      search:text,
     });
   }
 
-  ListViewItemSeparator = () => {
-    //Item sparator view
-    return (
-      <View
-        style={{
-          height: 0.3,
-          width: '90%',
-        }}
-      />
-    );
-  };
-
   render() {
     if (this.state.isLoading) {
-      //Loading View while data is loading
       return (
         <View style={{ flex: 1, paddingTop: 20 }}>
           <ActivityIndicator />
@@ -81,49 +54,45 @@ export default class SearchBarNavigator extends React.Component {
       );
     }
     return (
-      //ListView to show with textinput used as search bar
-      <View style={styles.viewStyle}>
-         <SearchBar
-	  	     platform={'ios'}
-		       containerStyle={styles.containerStyle}
-           inputContainerStyle={styles.inputContainerStyle}
-           onChangeText={text => this.SearchFilterFunction(text)}
-           onClear={text => this.SearchFilterFunction('')}
-           placeholder="My Tabs"
-           onChangeText={this.updateSearch}
-           value={this.state.search}
-        />
-        <FlatList
+      <ScrollView>
+      <View style={styles.container}>
+        <SearchBar
+          platform={'ios'}
+          searchIcon={{ size: 24 }}
+          onChangeText={text => this.SearchFilterFunction(text)}
+          onClear={text => this.SearchFilterFunction('')}
+          placeholder="My Tabs..."
+          value={this.state.search}
+          />
+          <FlatList
           data={this.state.dataSource}
           ItemSeparatorComponent={this.ListViewItemSeparator}
-          //Item Separator View
           renderItem={({ item }) => (
-            // Single Comes here which will be repeatative for the FlatListItems
-            <Text style={styles.textStyle}>{item.title}</Text>
+            <Text key={item.id} style={styles.text}>{item.name}</Text>
           )}
           enableEmptySections={true}
           style={{ marginTop: 10 }}
           keyExtractor={(item, index) => index.toString()}
         />
       </View>
+      </ScrollView>
     );
   }
 }
-
+ 
 const styles = StyleSheet.create({
-  viewStyle: {
-    justifyContent: 'center',
+  container: {
     flex: 1,
-    backgroundColor: 'white',
-    marginTop: Platform.OS == 'ios' ? 30 : 0,
+    // backgroundColor:'white',
+    marginTop: Platform.OS == 'ios'? 30 : 0
   },
-  textStyle: {
-    padding: 10,
-  },
-  	containerStyle: {
-		backgroundColor: 'rgb(238, 238, 238)'
-	},
-	inputContainerStyle: {
-		backgroundColor: 'white'
-	}
+  text: {
+    backgroundColor: '#EBEBEB',
+    padding: 20,
+    marginVertical: 8,
+    marginHorizontal: 16,
+    borderBottomColor: '#DBDBDA',
+    borderBottomWidth: 1,
+    fontSize: 18
+  }
 });
