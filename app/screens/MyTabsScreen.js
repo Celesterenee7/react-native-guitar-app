@@ -118,8 +118,8 @@ export default class MyTabs extends Component {
   render() {
     return (
       <View style={styles.mainContainer}>
-      <View style={styles.container}>
-        <SafeAreaView>
+        <Text style={styles.myTabsText}>My Tabs</Text>
+        <SafeAreaView style={styles.container}>
         <ScrollView>
           {this.state.listDataSource.map((item, key) => (
             <ExpandableItemComponent
@@ -131,7 +131,6 @@ export default class MyTabs extends Component {
         </ScrollView>
         </SafeAreaView>
       </View>
-      </View>
     );
   }
 }
@@ -140,17 +139,20 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'white',
-    marginTop: Constants.statusBarHeight
+    marginTop: Platform.OS == 'ios'? 5 : 0
   },
   mainContainer: {
     width: '100%',
     flex: 1,
-    marginBottom: 20,
-    marginTop: Platform.OS == 'ios'? 20 : 0
+  },
+  myTabsText: {
+    fontSize: 35,
+    marginTop: 50,
+    padding: 20
   },
   header: {
     backgroundColor: 'white',
-    padding: 20,
+    padding: 15,
     borderBottomColor: '#DBDBDA',
     borderBottomWidth: 1,
     marginTop: 8,

@@ -9,8 +9,9 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import reducers from './app/reducers';
-import FavTabs from './app/containers/tabsContainer';
+import MySongs from './app/containers/songsContainer';
 import Home from './app/screens/Home';
+import MyTabs from './app/screens/MyTabsScreen';
 
 const rootReducer = combineReducers({...reducers});
 const store = createStore(rootReducer, applyMiddleware(thunk));
@@ -27,15 +28,15 @@ function HomeFeed() {
 function MyFavTabs() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'white' }}>
-      <FavTabs/>
+      <MyTabs/>
     </View>
   );
 }
 
-function MySongs() {
+function MyFavSongs() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'white' }}>
-      {/* <FavTabs/> */}
+      <MySongs />
     </View>
   );
 }
@@ -80,8 +81,8 @@ function BottomNavTabs() {
         }}
       />
          <Tab.Screen
-        name="MySongs"
-        component={MySongs}
+        name="MyFavSongs"
+        component={MyFavSongs}
         options={{
           tabBarLabel: 'My Songs',
           tabBarIcon: ({ color }) => (
