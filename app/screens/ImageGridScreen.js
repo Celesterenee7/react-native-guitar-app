@@ -5,15 +5,9 @@ export default class ImageGridScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-      <View style={styles.container}>
-             <Image source = {{uri:'https://townsquare.media/site/295/files/2015/12/BeatlesForSale_1.jpg?w=980&q=75'}}
-   style = {{ width: 160, height: 160 }}
-   /></View>
-      <View style={styles.container}>
-        <Image source = {{uri:'https://d5wt70d4gnm1t.cloudfront.net/media/a-s/artworks/globe-photo-agency-3/48183-262458029854/globe-photo-agency-3-johnny-cash-smoking-and-playing-guitar-800x800.jpg'}}
-   style = {{ width: 160, height: 160 }}
+             <Image source = {{uri:'https://raw.githubusercontent.com/Celesterenee7/react-native-guitar-app/master/app/screens/collage_1.JPG'}}
+   style = {{ width: 305, height: 305 }}
    />
-      </View>
       </View>
     );
   }
@@ -21,11 +15,8 @@ export default class ImageGridScreen extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 2,
-    // flexDirection: 'column',
+    flex: 1,
     alignItems: 'center',
-  },
-  photos: {
-    alignContent: 'stretch',
+    marginBottom: 100
   }
 });

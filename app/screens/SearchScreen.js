@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   searchText: {
-    fontSize: 40,
+    fontSize: 35,
     marginTop: 50,
     padding: 10
   }

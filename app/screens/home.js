@@ -56,6 +56,7 @@ export default function Home() {
 
   return (
     <View style={styles.mainContainer}>
+      <Text style={styles.homeText}>Home</Text>
     <SafeAreaView style={styles.container}>
       <FlatList
         data={DATA}
@@ -80,16 +81,20 @@ const styles = StyleSheet.create({
   container: {
     // width: '100%',
     flex: 1,
-    marginTop: Constants.statusBarHeight
+    marginTop: Platform.OS == 'ios'? 5 : 0
   },
   mainContainer: {
     width: '100%',
     flex: 1,
-    marginTop: Platform.OS == 'ios'? 20 : 0
+  },
+  homeText: {
+    fontSize: 35,
+    marginTop: 50,
+    padding: 20
   },
   item: {
     backgroundColor: '#EBEBEB',
-    padding: 20,
+    padding: 15,
     marginVertical: 8,
     marginHorizontal: 16,
     borderBottomColor: '#DBDBDA',
