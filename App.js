@@ -9,7 +9,6 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import reducers from './app/reducers';
-import * as Font from 'expo-font';
 import FavTabs from './app/containers/tabsContainer';
 import Home from './app/screens/Home';
 
@@ -33,6 +32,14 @@ function MyFavTabs() {
   );
 }
 
+function MySongs() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'white' }}>
+      {/* <FavTabs/> */}
+    </View>
+  );
+}
+
 function Search() {
   return (
     <View>
@@ -48,8 +55,8 @@ function BottomNavTabs() {
     <Tab.Navigator
       initialRouteName="HomeFeed"
       tabBarOptions={{
-        activeTintColor: '#048B78',
-        activeBackgroundColor: '#83FAE7',
+        activeTintColor: 'rgb(87, 198, 175)',
+        // activeBackgroundColor: '#83FAE7',
       }}
     >
       <Tab.Screen
@@ -69,6 +76,16 @@ function BottomNavTabs() {
           tabBarLabel: 'My Tabs',
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="guitar-acoustic" color={color} size={20} />
+          ),
+        }}
+      />
+         <Tab.Screen
+        name="MySongs"
+        component={MySongs}
+        options={{
+          tabBarLabel: 'My Songs',
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="library-music" color={color} size={20} />
           ),
         }}
       />

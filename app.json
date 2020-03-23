@@ -13,7 +13,7 @@
     "orientation": "portrait",
     "scheme": "myapp",
     "splash": {
-      "image": "./assets/images/guitar.png",
+      "image": "./assets/images/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
