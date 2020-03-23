@@ -84,7 +84,7 @@ function BottomNavTabs() {
         name="MyFavSongs"
         component={MyFavSongs}
         options={{
-          tabBarLabel: 'My Songs',
+          tabBarLabel: 'Songs',
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="library-music" color={color} size={20} />
           ),

@@ -3,7 +3,7 @@ import { Text, View, StyleSheet, FlatList, ActivityIndicator, Platform } from 'r
 import { SearchBar } from 'react-native-elements';
 import { ScrollView } from 'react-native-gesture-handler';
 
-export default class App extends React.Component {
+export default class SearchBarNavigator extends React.Component {
   constructor(props) {
     super(props);
     this.state = { isLoading: true, search: '' };
@@ -35,7 +35,7 @@ export default class App extends React.Component {
   };
   SearchFilterFunction(text) {
     const newData = this.arrayholder.filter(function(item) {
-      const itemData = item.name ? item.name.toUpperCase() : ''.toUpperCase();
+      const itemData = {name, lyrics};
       const textData = text.toUpperCase();
       return itemData.indexOf(textData) > -1;
     });
@@ -58,6 +58,8 @@ export default class App extends React.Component {
       <View style={styles.container}>
         <SearchBar
           platform={'ios'}
+          lightTheme
+          // showLoading
           searchIcon={{ size: 24 }}
           onChangeText={text => this.SearchFilterFunction(text)}
           onClear={text => this.SearchFilterFunction('')}
@@ -68,7 +70,9 @@ export default class App extends React.Component {
           data={this.state.dataSource}
           ItemSeparatorComponent={this.ListViewItemSeparator}
           renderItem={({ item }) => (
-            <Text key={item.id} style={styles.text}>{item.name}</Text>
+            <View>
+          <Text key={item.id} style={styles.text}>{item.name}</Text>
+          </View>
           )}
           enableEmptySections={true}
           style={{ marginTop: 10 }}
@@ -87,12 +91,12 @@ const styles = StyleSheet.create({
     marginTop: Platform.OS == 'ios'? 15 : 0
   },
   text: {
-    backgroundColor: '#EBEBEB',
-    padding: 20,
+    // backgroundColor: '#EBEBEB',
+    padding: 10,
     marginVertical: 8,
     marginHorizontal: 16,
     borderBottomColor: '#DBDBDA',
-    borderBottomWidth: 1,
+    borderBottomWidth: 2,
     fontSize: 18
   }
 });

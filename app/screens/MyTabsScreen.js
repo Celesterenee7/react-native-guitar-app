@@ -15,7 +15,8 @@ import Constants from 'expo-constants';
 const DATA = [
   {
     isExpanded: false,
-    artist_name: 'The Beatles',
+    artist_name: 'The Beatles', 
+    // image: require('./images/home-photo.png'),
     subcategory: [{ id: 1, val: 'Blackbird' }, { id: 2, val: 'Help' }],
   },
   {
@@ -27,6 +28,26 @@ const DATA = [
     isExpanded: false,
     artist_name: 'Luke Combs',
     subcategory: [{ id: 7, val: 'Falling All Over Again' }, { id: 9, val: 'Hurricane' }],
+  },
+  {
+    isExpanded: false,
+    artist_name: 'Joni Mitchell',
+    subcategory: [{ id: 7, val: 'A Case of You' }, { id: 9, val: 'California' }],
+  },
+  {
+    isExpanded: false,
+    artist_name: 'Damien Rice',
+    subcategory: [{ id: 7, val: 'Delicate' }, { id: 9, val: 'The Professor' }],
+  },
+  {
+    isExpanded: false,
+    artist_name: 'Novo Amor',
+    subcategory: [{ id: 7, val: 'Anchor' }, { id: 9, val: 'State Lines' }],
+  },
+  {
+    isExpanded: false,
+    artist_name: 'Tracy Chapman',
+    subcategory: [{ id: 7, val: 'Fast Car' }, { id: 9, val: 'Give Me One Reason' }],
   }
 ];
 

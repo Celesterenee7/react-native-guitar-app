@@ -28,15 +28,15 @@ export default class MySongs extends Component {
   };
 
   _renderSong(song) {
-  return (
-    <View key={song.id} style={styles.tabs}>
-    <Text>Song: {song.name}</Text>
-    <Text>Lyrics: {song.lyrics}</Text>
-    <Text>Chords: {song.chords}</Text>
-    <Text>Tabs: {song.tabs}</Text>
-    </View>
-   );
-  }
+    return (
+      <View key={song.id} style={styles.tabs}>
+      <Text style={styles.tabTitle}>Song: {song.name} </Text>
+      <Text>Lyrics: {song.lyrics}</Text>
+      <Text>Chords: {song.chords}</Text>
+      <Text>Tabs: {song.tabs}</Text>
+      </View>
+     );
+    }
 
   _renderSongs() {
     const {data, status} = this.props.songs;
@@ -69,6 +69,12 @@ export default class MySongs extends Component {
           onChangeText={chords => this.setState({chords})}
           value={this.state.chords}
         />
+            <TextInput
+          style={styles.textfield}
+          placeholder={'Tabs'}
+          onChangeText={tabs => this.setState({tabs})}
+          value={this.state.tabs}
+        />
         <Button color="rgb(87, 198, 175)" title="Add Song" onPress={this._createSong} />
       </View>
     );
@@ -77,9 +83,8 @@ export default class MySongs extends Component {
   render() {
     return (
       <View style={styles.mainContainer}>
+        <Text style={styles.songsText}>Songs</Text>
       <ScrollView>
-      <View>
-        </View>
         <View style={styles.container}>
         {this._renderSongs()}
         {this._renderCreateForm()}
@@ -101,22 +106,35 @@ const styles = StyleSheet.create({
     width: '100%',
     flex: 1,
   },
+  songsText: {
+    fontSize: 35,
+    marginTop: 50,
+    padding: 20
+  },
   tabs: {
     paddingLeft: 16,
-    paddingBottom: 30,
-    fontSize: 18
+    paddingBottom: 10,
+    paddingTop: 10,
+    fontSize: 18,
+    borderBottomColor: '#DBDBDA',
+    borderBottomWidth: 1,
+  },
+  tabTitle: {
+    fontSize: 20,
+    paddingBottom: 8
   },
   textfield: {
     flex: 1,
     backgroundColor: '#eee',
     padding: 10,
     marginBottom: 10,
-    width: '80%'
+    width: '80%',
   },
   inputContainer: {
     alignItems: 'center',
     flex: 1,
     justifyContent: 'center',
+    marginTop: 30
   },
 });
 
