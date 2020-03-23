@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     // backgroundColor:'white',
-    marginTop: Platform.OS == 'ios'? 30 : 0
+    marginTop: Platform.OS == 'ios'? 15 : 0
   },
   text: {
     backgroundColor: '#EBEBEB',

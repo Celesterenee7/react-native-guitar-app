@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {
   ScrollView,
+  TouchableOpacity,
   View,
   Text,
   StyleSheet,
@@ -30,11 +31,11 @@ export default class FavTabs extends Component {
 
   _renderSong(song) {
   return (
-    <View key ={song.id} style={styles.lyrics}>
-    <Text>{song.name}</Text>
-    <Text>{song.lyrics}</Text>
-    <Text>{song.chords}</Text>
-    <Text>{song.tabs}</Text>
+    <View key={song.id} style={styles.tabs}>
+    <Text>Song: {song.name}</Text>
+    <Text>Lyrics: {song.lyrics}</Text>
+    <Text>Chords: {song.chords}</Text>
+    <Text>Tabs: {song.tabs}</Text>
     </View>
    );
   }
@@ -82,8 +83,10 @@ export default class FavTabs extends Component {
       <View>
         <MyTabsScreen/>
         </View>
+        <View style={styles.container}>
         {this._renderSongs()}
         {this._renderCreateForm()}
+        </View>
       </ScrollView>
       </View>
     );
@@ -91,13 +94,20 @@ export default class FavTabs extends Component {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 10,
+    marginBottom: 12,
+    marginRight: 16,
+  },
   mainContainer: {
     width: '100%',
     flex: 1,
   },
-  lyrics: {
-    paddingLeft: 20,
-    paddingBottom: 10
+  tabs: {
+    paddingLeft: 16,
+    paddingBottom: 30,
+    fontSize: 18
   },
   textfield: {
     flex: 1,

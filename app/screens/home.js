@@ -6,7 +6,8 @@ import {
   FlatList,
   StyleSheet,
   Text,
-  View
+  View,
+  Platform
 } from 'react-native';
 import Constants from 'expo-constants';
 
@@ -84,6 +85,7 @@ const styles = StyleSheet.create({
   mainContainer: {
     width: '100%',
     flex: 1,
+    marginTop: Platform.OS == 'ios'? 20 : 0
   },
   item: {
     backgroundColor: '#EBEBEB',
