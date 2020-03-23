@@ -5,7 +5,7 @@ export default class ImageGridScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-             <Image source = {{uri:'https://raw.githubusercontent.com/Celesterenee7/react-native-guitar-app/master/app/screens/collage_1.JPG'}}
+             <Image source = {{uri:'https://raw.githubusercontent.com/Celesterenee7/react-native-guitar-app/master/app/screens/images/collage_1.JPG'}}
    style = {{ width: 305, height: 305 }}
    />
       </View>
