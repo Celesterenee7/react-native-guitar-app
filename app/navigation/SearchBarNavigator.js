@@ -35,7 +35,7 @@ export default class SearchBarNavigator extends React.Component {
   };
   SearchFilterFunction(text) {
     const newData = this.arrayholder.filter(function(item) {
-      const itemData = {name, lyrics};
+      const itemData = item.name ? item.name.toUpperCase() : ''.toUpperCase();
       const textData = text.toUpperCase();
       return itemData.indexOf(textData) > -1;
     });
@@ -54,9 +54,10 @@ export default class SearchBarNavigator extends React.Component {
       );
     }
     return (
+      <View>
       <ScrollView>
-      <View style={styles.container}>
-        <SearchBar
+        <View style={styles.container}>
+          <SearchBar
           platform={'ios'}
           lightTheme
           // showLoading
@@ -66,20 +67,21 @@ export default class SearchBarNavigator extends React.Component {
           placeholder="My Tabs..."
           value={this.state.search}
           />
-          <FlatList
-          data={this.state.dataSource}
-          ItemSeparatorComponent={this.ListViewItemSeparator}
-          renderItem={({ item }) => (
-            <View>
-          <Text key={item.id} style={styles.text}>{item.name}</Text>
-          </View>
-          )}
-          enableEmptySections={true}
-          style={{ marginTop: 10 }}
-          keyExtractor={(item, index) => index.toString()}
-        />
-      </View>
+        </View>
       </ScrollView>
+          <FlatList
+             data={this.state.dataSource}
+             ItemSeparatorComponent={this.ListViewItemSeparator}
+             renderItem={({ item }) => (
+             <View>
+               <Text key={item.id} style={styles.text}>{item.name}</Text>
+             </View>
+             )}
+             enableEmptySections={true}
+             style={{ marginTop: 10 }}
+             keyExtractor={(item, index) => index.toString()}
+           />
+           </View>
     );
   }
 }
