@@ -33,7 +33,7 @@
     "native-base": "^2.13.8",
     "navbar-native": "^1.6.1",
     "react": "~16.9.0",
-    "react-chord-diagram": "^1.5.0",
+    "react-chord-diagram": "^1.8.0",
     "react-dom": "~16.9.0",
     "react-grid-gallery": "^0.5.5",
     "react-guitar-chord": "^1.1.0",
